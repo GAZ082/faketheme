@@ -1,0 +1,20 @@
+{{ define "main" }} 
+{{ $paginator := .Paginate  (where .Site.RegularPages.ByDate.Reverse "Section" "post")}} {{ partial "pagination.html" . }} {{ range $paginator.Pages}}
+<article>
+    <h1>{{.Title}}</h1>
+    <div class="author">By <span id="twitter"><a
+        href="{{$.Site.Params.twitterURL}}"><strong>{{ .Site.Params.author}}</strong> <i class="fab fa-twitter"></i></a></span> on
+        <date>
+            {{.Date.Format .Site.Params.dateFormat }}
+        </date>
+    </div>
+    <p> {{ .Summary }}
+    </p>
+    {{ if .Truncated }}
+    <div class="read_more">
+        <a href="{{ .RelPermalink }}">Read More…</a></div>
+    {{ end }}
+   {{ partial "tags.html" .}}
+</article>
+<div class="post_separator">~ ~ ~</div>
+{{ end }} {{ partial "pagination.html" . }} {{ end }}

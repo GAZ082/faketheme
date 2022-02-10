@@ -1,0 +1,37 @@
+<div id="menuToggle">
+  <input type="checkbox" />
+  <i class="fas fa-bars"></i>
+</div>
+<ul id="menu_links">
+  {{ range .Site.Menus.main }}
+  <li>
+    <a href="{{ .URL }}">{{ .Name }}</a>
+  </li>
+  {{ end }}
+  {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+  <li><a href="/tags/{{ $name | urlize }}">#{{ $name }}</a></li>
+  {{ end }}
+</ul>
+
+
+<script>
+  let firstclick = false;
+  document.getElementsByTagName("input")[0].addEventListener("click", function () {
+
+    if (!firstclick) {
+      document.getElementsByTagName("body")[0].style.overflow = "hidden"
+      document.querySelector("#menu_links").style.width = "100%";
+      document.querySelector("#menu_links").style.display = "block";
+      document.querySelector("#menuToggle>i").className = "fas fa-times";
+      firstclick = !firstclick
+      console.log(firstclick);
+
+    } else {
+      document.querySelector("#menu_links").style.display = "none";
+      document.getElementsByTagName("body")[0].style.overflow = "auto"
+      document.querySelector("#menuToggle>i").className = "fas fa-bars";
+      firstclick = !firstclick
+      console.log(firstclick);
+    }
+  });
+</script>

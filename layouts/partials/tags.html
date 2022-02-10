@@ -1,0 +1,9 @@
+<div class="tags">
+  <i name="hint" class="fas fa-tags"></i>
+  {{ with .Params.tags }}
+  {{ range . }}
+  {{ $href := print (absURL "tags/") (urlize .) }}
+  <a href="{{ $href }}">#{{ . }}</a><span class="space"></span>
+  {{ end }}
+  {{ end }}
+</div>

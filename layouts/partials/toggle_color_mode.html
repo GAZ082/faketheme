@@ -1,0 +1,42 @@
+<div id="toggle_theme" onclick="toggleTheme()">
+  <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+</div>
+<style>
+  #toggle_theme {
+    color: var(--hintColor);
+    font-size: calc(var(--font-base-size) * 2);
+    width: 100%;
+    text-align: right;
+    margin-top: var(--font-base-size);
+  }
+  #toggle_theme > i.fas.fa-sun {
+    display: none;
+  }
+</style>
+<script>
+  let moon = document.querySelector("#toggle_theme > i.fas.fa-moon");
+  let sun = document.querySelector("#toggle_theme > i.fas.fa-sun");
+  if (localStorage.getItem("theme") === "dark") {
+    setDark(moon, sun);
+  }
+  function toggleTheme() {
+    if (localStorage.getItem("theme") === "light") {
+      setDark(moon, sun);
+    } else {
+      setLight(moon, sun);
+    }
+  }
+  function setLight(moon, sun) {
+    moon.style.display = "block";
+    sun.style.display = "none";
+    localStorage.setItem("theme", "light");
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+  function setDark(moon, sun) {
+    localStorage.setItem("theme", "dark");
+    moon.style.display = "none";
+    sun.style.display = "block";
+    document.documentElement.setAttribute("data-theme", "dark");
+    console.log(document.documentElement);
+  }
+</script>

@@ -1,0 +1,22 @@
+<html>
+<head>
+  {{ template "_internal/google_analytics_async.html" . }}
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="rpg, osr, iot, personal, blog">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href='/css/styles.css?timestamp={{now.Unix}}'>
+  <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css'>
+
+  <link rel=" icon" href="/image/favicon.png" type="image/png" sizes="32x32">
+  <title>{{ .Title }}</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  {{ $header := "Hi, I'm Gabriel" }}
+</head>
+<body>
+  {{ partial "hamburguer.html" . }}
+  <div id="website">
+    <header> {{$header}}   {{ partial "toggle_color_mode.html" . }}</header>
+    {{ partial "menu.html" . }}

@@ -1,0 +1,34 @@
+{
+  "baseURL": "https://x.me/",
+  "languageCode": "en-us",
+  "title": "xx.ME",
+  "enableInlineShortcodes": true,
+  "googleAnalytics": "UA-x-1",
+  "summaryLength": 20,
+  "paginate": 4,
+  "permalinks": {
+    "post": "/:slug/",
+    "fixed": "/:slug/"
+  },
+  "params": {
+    "author": "Gabriel",
+    "dateFormat": "2006-01-02",
+    "twitterURL": "x",
+    "twitterTXT": "@x",
+    "subTitle": "I'm Gabriel"
+  },
+  "menu": {
+    "main": [
+      {
+        "name": "Home",
+        "url": "/",
+        "weight": 1
+      },
+      {
+        "name": "About Me",
+        "url": "/about-me",
+        "weight": 2
+      }
+    ]
+  }
+}

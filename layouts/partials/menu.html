@@ -1,0 +1,15 @@
+<nav name="desktop_menu">
+  <ul class="menu">
+    {{ range .Site.Menus.main }}
+    <li>
+      <a href="{{ .URL }}">{{ .Name }}</a>
+    </li>
+    {{ end }}
+  </ul>
+  <ul class="tagmenu">
+    <i name="hint" class="fas fa-tags"></i>
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    <li><a href="/tags/{{ $name | urlize }}">#{{ $name }}</a></li>
+    {{ end }}
+  </ul>
+</nav>

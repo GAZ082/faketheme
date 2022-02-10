@@ -1,0 +1,8 @@
+<div class="prev_next">
+  {{ if .PrevInSection }}
+  <a href="{{ .PrevInSection.Permalink }}"><i class="fas fa-caret-left"></i></a>
+  {{ end }}
+  {{ if .NextInSection }}
+  <a href="{{ .NextInSection.Permalink }}"><i class="fas fa-caret-right"></i></a>
+  {{ end }}
+</div>
